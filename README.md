@@ -20,14 +20,20 @@ respawn_toggle:
 
 ### Usage
 Read current status of respawn waves is allowed or not.
+
 Requires `respawntoggle.read` permission
+
 Usage: `rw s` or `respawnwaves status`.
 
 Toggle respawning:
 Requires `respawntoggle.write` permission
+
 Usage: `rw t all/ntf/ci` or `respawnwaves toggle all/ntf/ci`
+
 For all teams use: `rw t all`
+
 For NTF team use: `rw t ntf`
+
 For CI team use: `rw t ci`
 
 ### Permissions
