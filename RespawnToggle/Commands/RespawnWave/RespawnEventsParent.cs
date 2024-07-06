@@ -14,6 +14,8 @@ namespace RespawnToggle.Commands.RespawnEvents
 
 		public override string Description { get; } = "Control respawn waves for NTF/CI";
 
+		public bool SanitizeResponse { get; } = false;
+
 		public RespawnEventsCommand()
 		{
 			LoadGeneratedCommands();

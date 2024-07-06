@@ -13,6 +13,8 @@ namespace RespawnToggle.Commands.RespawnEvents
 
 		public string Description { get; } = "Get current status of waves";
 
+		public bool SanitizeResponse { get; } = false;
+
 		private RespawnEventsCommand parent = null;
 
 		public StatusCommand(RespawnEventsCommand parent) {

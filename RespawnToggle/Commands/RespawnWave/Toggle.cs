@@ -13,6 +13,7 @@ namespace RespawnToggle.Commands.RespawnEvents
 		public string[] Aliases { get; } = { "t" };
 
 		public string Description { get; } = "Toggle all or selected team wave";
+		public bool SanitizeResponse { get; } = false;
 
 		private RespawnEventsCommand parent = null;
 
