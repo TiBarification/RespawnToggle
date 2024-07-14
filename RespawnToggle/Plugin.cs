@@ -4,6 +4,7 @@ namespace RespawnToggle
 	using System;
 	using Exiled.API.Features;
 	using ServerEvent = Exiled.Events.Handlers.Server;
+	using MapEvent = Exiled.Events.Handlers.Map;
 
 	public class Plugin : Plugin<Config>
 	{
@@ -14,7 +15,7 @@ namespace RespawnToggle
 
 		public override string Name => "RespawnToggle";
 
-		public override Version Version => new Version(1, 0, 2);
+		public override Version Version => new Version(1, 0, 3);
 
 		public override string Author => "TiBarification";
 
@@ -44,6 +45,7 @@ namespace RespawnToggle
 		{
 			ServerEvent.RespawningTeam -= eventHandlers.RespawningTeam;
 			ServerEvent.RoundEnded -= eventHandlers.RoundEnded;
+			MapEvent.SpawningTeamVehicle -= eventHandlers.SpawningTeamVehicle;
 		}
 
 		private void RegisterEvents()
@@ -52,6 +54,7 @@ namespace RespawnToggle
 
 			ServerEvent.RespawningTeam += eventHandlers.RespawningTeam;
 			ServerEvent.RoundEnded += eventHandlers.RoundEnded;
+			MapEvent.SpawningTeamVehicle += eventHandlers.SpawningTeamVehicle;
 		}
 	}
 }
