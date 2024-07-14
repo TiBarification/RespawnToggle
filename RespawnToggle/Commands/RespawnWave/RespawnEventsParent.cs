@@ -32,27 +32,27 @@ namespace RespawnToggle.Commands.RespawnEvents
 
 			if (team == SpawnableTeamType.None || team == SpawnableTeamType.NineTailedFox)
 			{
-				sbp.Append("NTF:");
+				sbp.Append("<color=#3d85c6>NTF</color>: <color=");
 				if (NTFEnabled)
 				{
-					sbp.AppendLine("Enabled");
+					sbp.AppendLine("#00ff00>Enabled</color>");
 				}
 				else
 				{
-					sbp.AppendLine("Disabled");
+					sbp.AppendLine("#ff0000>Disabled</color>");
 				}
 			}
 
 			if (team == SpawnableTeamType.None || team == SpawnableTeamType.ChaosInsurgency)
 			{
-				sbp.Append("CI:");
+				sbp.Append("<color=#6aa84f>CI</color>: <color=");
 				if (CIEnabled)
 				{
-					sbp.AppendLine("Enabled");
+					sbp.AppendLine("#00ff00>Enabled</color>");
 				}
 				else
 				{
-					sbp.AppendLine("Disabled");
+					sbp.AppendLine("#ff0000>Disabled</color>");
 				}
 			}
 
