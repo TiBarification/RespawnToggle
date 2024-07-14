@@ -40,6 +40,7 @@ namespace RespawnToggle.Commands.RespawnEvents
 
 			switch (team)
 			{
+				case "a":
 				case "all":
 					{
 						Plugin.Instance.NTFRespawnEnabled = !Plugin.Instance.NTFRespawnEnabled;
@@ -48,6 +49,7 @@ namespace RespawnToggle.Commands.RespawnEvents
 						response = parent.FormatRespawnWaveStatusResponse();
 						break;
 					}
+				case "n":
 				case "ntf":
 					{
 						Plugin.Instance.NTFRespawnEnabled = !Plugin.Instance.NTFRespawnEnabled;
@@ -55,6 +57,7 @@ namespace RespawnToggle.Commands.RespawnEvents
 						response = parent.FormatRespawnWaveStatusResponse(Respawning.SpawnableTeamType.NineTailedFox);
 						break;
 					}
+				case "c":
 				case "ci":
 					{
 						Plugin.Instance.CIRespawnEnabled = !Plugin.Instance.CIRespawnEnabled;

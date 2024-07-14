@@ -7,14 +7,14 @@ namespace RespawnToggle.Commands.RespawnEvents
 	using Respawning;
 
 	[CommandHandler(typeof(RemoteAdminCommandHandler))]
-	public class RespawnEventsCommand : ParentCommand
+	public class RespawnEventsCommand : ParentCommand, ICommand
 	{
 		public override string Command { get; } = "respawnwave";
 		public override string[] Aliases { get; } = { "rw", "rwave" };
 
 		public override string Description { get; } = "Control respawn waves for NTF/CI";
 
-		public bool SanitizeResponse { get; } = false;
+		public bool SanitizeResponse => false;
 
 		public RespawnEventsCommand()
 		{
