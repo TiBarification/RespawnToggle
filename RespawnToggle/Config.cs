@@ -12,8 +12,5 @@ namespace RespawnToggle
 		public bool IsEnabled { get; set; } = true;
 		public bool Debug { get; set; } = false;
 
-		[Description("Keep wave status between round change")]
-		public bool KeepStateOnNextRound { get; set; } = false;
-
 	}
 }

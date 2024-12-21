@@ -3,8 +3,6 @@ namespace RespawnToggle
 {
 	using System;
 	using Exiled.API.Features;
-	using ServerEvent = Exiled.Events.Handlers.Server;
-	using MapEvent = Exiled.Events.Handlers.Map;
 
 	public class Plugin : Plugin<Config>
 	{
@@ -15,46 +13,21 @@ namespace RespawnToggle
 
 		public override string Name => "RespawnToggle";
 
-		public override Version Version => new Version(1, 0, 3);
+		public override Version Version => new Version(2, 0, 0);
 
 		public override string Author => "TiBarification";
 
-		public override Version RequiredExiledVersion => new Version(8, 9, 6);
-
-		public EventHandlers eventHandlers;
-
-		public bool NTFRespawnEnabled { get; set; } = true;
-
-		public bool CIRespawnEnabled { get; set; } = true;
+		public override Version RequiredExiledVersion => new Version(9, 0, 0);
 
 		public override void OnEnabled()
 		{
 			Instance = this;
 			if (!Config.IsEnabled) return;
-
-			RegisterEvents();
 		}
 
 		public override void OnDisabled()
 		{
-			UnregisterEvents();
 			base.OnDisabled();
-		}
-
-		private void UnregisterEvents()
-		{
-			ServerEvent.RespawningTeam -= eventHandlers.RespawningTeam;
-			ServerEvent.RoundEnded -= eventHandlers.RoundEnded;
-			MapEvent.SpawningTeamVehicle -= eventHandlers.SpawningTeamVehicle;
-		}
-
-		private void RegisterEvents()
-		{
-			eventHandlers = new EventHandlers();
-
-			ServerEvent.RespawningTeam += eventHandlers.RespawningTeam;
-			ServerEvent.RoundEnded += eventHandlers.RoundEnded;
-			MapEvent.SpawningTeamVehicle += eventHandlers.SpawningTeamVehicle;
 		}
 	}
 }

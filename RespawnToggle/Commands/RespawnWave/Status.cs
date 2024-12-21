@@ -15,12 +15,6 @@ namespace RespawnToggle.Commands.RespawnEvents
 
 		public bool SanitizeResponse { get; } = false;
 
-		private RespawnEventsCommand parent = null;
-
-		public StatusCommand(RespawnEventsCommand parent) {
-			this.parent = parent;
-		}
-
 		public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
 		{
 			if (!((CommandSender)sender).CheckPermission("respawntoggle.read"))
@@ -29,9 +23,7 @@ namespace RespawnToggle.Commands.RespawnEvents
 				return false;
 			}
 
-
-
-			response = parent.FormatRespawnWaveStatusResponse();
+			response = $"Respawn wave status: {!RespawnControl.NoRespawn}";
 			return true;
 		}
 	}
