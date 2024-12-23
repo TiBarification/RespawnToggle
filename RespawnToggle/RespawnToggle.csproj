@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\RespawnWave\RespawnEventsParent.cs" />
+    <Compile Include="Commands\RespawnWave\Force.cs" />
     <Compile Include="Commands\RespawnWave\Toggle.cs" />
     <Compile Include="Commands\RespawnWave\Status.cs" />
     <Compile Include="Config.cs" />

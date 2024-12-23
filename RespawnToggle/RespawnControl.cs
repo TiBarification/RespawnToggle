@@ -35,5 +35,36 @@ namespace RespawnToggle
 				noRespawn = value;
 			}
 		}
+
+		public static bool ForceRespawn(int waveNum, out string error)
+		{
+			error = null;
+			if (waveNum < 0 || waveNum >= WaveManager.Waves.Count)
+			{
+				error = "Invalid wave number";
+				return false;
+			}
+			try
+			{
+				var wave = WaveManager.Waves.ElementAt(waveNum);
+				if (wave is TimeBasedWave timeWave)
+				{
+					timeWave.Timer.SetTime(float.MaxValue);
+					return true;
+				}
+				error = "Wave is not time based";
+				return false;
+			}
+			catch (ArgumentOutOfRangeException e)
+			{
+				error = e.Message;
+			}
+			catch (ArgumentNullException e)
+			{
+				error = e.Message;
+			}
+
+			return false;
+		}
 	}
 }

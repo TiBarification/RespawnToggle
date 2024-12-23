@@ -3,9 +3,6 @@ namespace RespawnToggle.Commands.RespawnEvents
 {
 	using System;
 	using CommandSystem;
-	using Exiled.API.Features.Pools;
-	using PlayerRoles;
-	using Respawning;
 
 	[CommandHandler(typeof(RemoteAdminCommandHandler))]
 	public class RespawnEventsCommand : ParentCommand, ICommand
@@ -26,6 +23,7 @@ namespace RespawnToggle.Commands.RespawnEvents
 		{
 			RegisterCommand(new StatusCommand());
 			RegisterCommand(new ToggleCommand());
+			RegisterCommand(new ForceCommand());
 		}
 
 		protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
