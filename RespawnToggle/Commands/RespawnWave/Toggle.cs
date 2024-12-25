@@ -3,7 +3,6 @@ namespace RespawnToggle.Commands.RespawnEvents
 {
 	using System;
 	using CommandSystem;
-	using Exiled.API.Features.Pools;
 	using Exiled.Permissions.Extensions;
 
 	internal class ToggleCommand : ICommand

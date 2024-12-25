@@ -116,6 +116,7 @@
     <Compile Include="Commands\RespawnWave\Toggle.cs" />
     <Compile Include="Commands\RespawnWave\Status.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="EventHandlers.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RespawnControl.cs" />

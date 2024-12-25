@@ -28,7 +28,7 @@ namespace RespawnToggle.Commands.RespawnEvents
 
 		protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
 		{
-			response = $"Invalid SubCommand! available SubCommands: status (s) / toggle (t).";
+			response = $"Invalid SubCommand! available SubCommands: status (s) / toggle (t) / force (f).";
 			return false;
 		}
 	}
