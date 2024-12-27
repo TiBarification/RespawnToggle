@@ -28,7 +28,7 @@ namespace RespawnToggle
 						}
 						else
 						{
-							timeWave.Timer.Reset();
+							timeWave.Timer.Pause(0);
 						}
 					}
 				}
@@ -39,6 +39,7 @@ namespace RespawnToggle
 
 		public static void Reset()
 		{
+			noRespawn = false;
 			foreach (var wave in WaveManager.Waves)
 			{
 				if (wave is TimeBasedWave timeWave)
@@ -46,8 +47,6 @@ namespace RespawnToggle
 					timeWave.Timer.Reset(true);
 				}
 			}
-
-			noRespawn = false;
 		}
 
 		public static TimeBasedWave ForceRespawn(int waveNum, out string error)
