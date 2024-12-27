@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Exiled.Events.EventArgs.Server;
 
 namespace RespawnToggle
 {
 	public class EventHandlers
 	{
-		public void OnRoundRestarting()
+		public void RoundEnded(RoundEndedEventArgs ev)
 		{
-			RespawnControl.NoRespawn = false;
+			RespawnControl.Reset();
 		}
 	}
 }

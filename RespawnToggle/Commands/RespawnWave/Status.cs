@@ -17,9 +17,9 @@ namespace RespawnToggle.Commands.RespawnEvents
 
 		public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
 		{
-			if (!((CommandSender)sender).CheckPermission("respawntoggle.read"))
+			if (!((CommandSender)sender).CheckPermission(PlayerPermissions.RespawnEvents))
 			{
-				response = "You do not have permission to use this command";
+				response = "You do not have RespawnEvents permission to use this command";
 				return false;
 			}
 

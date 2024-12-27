@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Respawning.Waves;
 using Respawning;
+using YamlDotNet.Core.Tokens;
 
 namespace RespawnToggle
 {
@@ -36,24 +37,39 @@ namespace RespawnToggle
 			}
 		}
 
-		public static bool ForceRespawn(int waveNum, out string error)
+		public static void Reset()
+		{
+			foreach (var wave in WaveManager.Waves)
+			{
+				if (wave is TimeBasedWave timeWave)
+				{
+					timeWave.Timer.Reset(true);
+				}
+			}
+
+			noRespawn = false;
+		}
+
+		public static TimeBasedWave ForceRespawn(int waveNum, out string error)
 		{
 			error = null;
 			if (waveNum < 0 || waveNum >= WaveManager.Waves.Count)
 			{
 				error = "Invalid wave number";
-				return false;
+				return null;
 			}
 			try
 			{
 				var wave = WaveManager.Waves.ElementAt(waveNum);
 				if (wave is TimeBasedWave timeWave)
 				{
+					NoRespawn = false;
+					timeWave.Timer.SpawnIntervalSeconds = 0;
 					timeWave.Timer.SetTime(float.MaxValue);
-					return true;
+					return timeWave;
 				}
 				error = "Wave is not time based";
-				return false;
+				return null;
 			}
 			catch (ArgumentOutOfRangeException e)
 			{
@@ -64,7 +80,21 @@ namespace RespawnToggle
 				error = e.Message;
 			}
 
-			return false;
+			return null;
+		}
+
+		public static TimeBasedWave GetWave(int waveNum)
+		{
+			if (waveNum < 0 || waveNum >= WaveManager.Waves.Count)
+			{
+				return null;
+			}
+			var wave = WaveManager.Waves.ElementAt(waveNum);
+			if (wave is TimeBasedWave timeWave)
+			{
+				return timeWave;
+			}
+			throw new ArgumentException("Wave is not time based");
 		}
 	}
 }

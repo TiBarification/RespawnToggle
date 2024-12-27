@@ -3,6 +3,8 @@ namespace RespawnToggle.Commands.RespawnEvents
 {
 	using System;
 	using CommandSystem;
+	using Exiled.API.Features;
+	using Exiled.Permissions.Extensions;
 
 	[CommandHandler(typeof(RemoteAdminCommandHandler))]
 	public class RespawnEventsCommand : ParentCommand, ICommand
@@ -23,12 +25,19 @@ namespace RespawnToggle.Commands.RespawnEvents
 		{
 			RegisterCommand(new StatusCommand());
 			RegisterCommand(new ToggleCommand());
-			RegisterCommand(new ForceCommand());
 		}
 
 		protected override bool ExecuteParent(ArraySegment<string> arguments, ICommandSender sender, out string response)
 		{
-			response = $"Invalid SubCommand! available SubCommands: status (s) / toggle (t) / force (f).";
+			Player player = Player.Get(sender);
+			response = "\nPlease enter a valid subcommand:\n";
+			foreach (var command in AllCommands)
+				if (player.CheckPermission(PlayerPermissions.RespawnEvents))
+				{
+					var aliases = command.Aliases.Length > 0 ? $" ({string.Join(", ", command.Aliases)})" : "";
+					response += $"\n- {command.Command}{aliases}";
+
+				}
 			return false;
 		}
 	}
