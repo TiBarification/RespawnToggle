@@ -14,7 +14,7 @@ namespace RespawnToggle
 
 		public override string Name => "RespawnToggle";
 
-		public override Version Version => new Version(2, 2, 0);
+		public override Version Version => new Version(2, 3, 0);
 
 		public override string Author => "TiBarification";
 
@@ -28,11 +28,13 @@ namespace RespawnToggle
 			eventHandlers = new EventHandlers();
 			if (!Config.IsEnabled) return;
 			ServerEvent.RoundEnded += eventHandlers.RoundEnded;
+			ServerEvent.RestartingRound += eventHandlers.RestartingRound;
 		}
 
 		public override void OnDisabled()
 		{
 			ServerEvent.RoundEnded -= eventHandlers.RoundEnded;
+			ServerEvent.RestartingRound -= eventHandlers.RestartingRound;
 			base.OnDisabled();
 		}
 	}

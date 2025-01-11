@@ -13,5 +13,10 @@ namespace RespawnToggle
 		{
 			RespawnControl.Reset();
 		}
+
+		public void RestartingRound()
+		{
+			RespawnControl.Reset();
+		}
 	}
 }
