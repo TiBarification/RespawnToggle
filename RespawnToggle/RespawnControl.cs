@@ -39,6 +39,7 @@ namespace RespawnToggle
 				if (wave is TimeBasedWave timeWave)
 				{
 					timeWave.Timer.Reset(true);
+					timeWave.Timer.Pause(0);
 				}
 			}
 		}

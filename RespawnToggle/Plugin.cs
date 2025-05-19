@@ -14,7 +14,7 @@ namespace RespawnToggle
 
 		public override string Name => "RespawnToggle";
 
-		public override Version Version => new Version(2, 3, 0);
+		public override Version Version => new Version(2, 4, 0);
 
 		public override string Author => "TiBarification";
 
