@@ -1,10 +1,8 @@
+using System;
+using CommandSystem;
 
 namespace RespawnToggle.Commands.RespawnEvents
 {
-	using System;
-	using CommandSystem;
-	using Exiled.Permissions.Extensions;
-
 	internal class ToggleCommand : ICommand
 	{
 		public string Command { get; } = "toggle";

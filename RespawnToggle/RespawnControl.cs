@@ -1,5 +1,6 @@
 using Respawning.Waves;
 using Respawning;
+using System.Linq;
 
 namespace RespawnToggle
 {
@@ -12,18 +13,15 @@ namespace RespawnToggle
 			get => noRespawn;
 			set
 			{
-				foreach (var wave in WaveManager.Waves)
+				foreach (TimeBasedWave wave in WaveManager.Waves.Where(w => w is TimeBasedWave))
 				{
-					if (wave is TimeBasedWave timeWave)
+					if (value)
 					{
-						if (value)
-						{
-							timeWave.Timer.Pause(float.MaxValue);
-						}
-						else
-						{
-							timeWave.Timer.Pause(0);
-						}
+						wave.Timer.Pause(float.MaxValue);
+					}
+					else
+					{
+						wave.Timer.Pause(0);
 					}
 				}
 
@@ -34,13 +32,10 @@ namespace RespawnToggle
 		public static void Reset()
 		{
 			noRespawn = false;
-			foreach (var wave in WaveManager.Waves)
+			foreach (TimeBasedWave wave in WaveManager.Waves.Where(w => w is TimeBasedWave))
 			{
-				if (wave is TimeBasedWave timeWave)
-				{
-					timeWave.Timer.Reset(true);
-					timeWave.Timer.Pause(0);
-				}
+				wave.Timer.Reset(true);
+				wave.Timer.Pause(0);
 			}
 		}
 	}

@@ -1,41 +1,35 @@
+using System;
 
 namespace RespawnToggle
 {
-	using System;
-	using Exiled.API.Features;
-	using ServerEvent = Exiled.Events.Handlers.Server;
-
-	public class Plugin : Plugin<Config>
+	public class RespawnTogglePlugin : LabApi.Loader.Features.Plugins.Plugin
 	{
 		/// <summary>
 		/// Gets a static instance of the <see cref="Plugin"/> class.
 		/// </summary>
-		public static Plugin Instance { get; private set; }
+		public static RespawnTogglePlugin Instance { get; private set; }
 
 		public override string Name => "RespawnToggle";
-
-		public override Version Version => new Version(2, 4, 0);
-
+		public override string Description => "Provides a way to disable wave spawn";
+		public override Version Version => new Version(3, 0, 0);
 		public override string Author => "TiBarification";
+		public override Version RequiredApiVersion => LabApi.Features.LabApiProperties.CurrentVersion;
 
-		public override Version RequiredExiledVersion => new Version(9, 0, 0);
 
 		EventHandlers eventHandlers;
 
-		public override void OnEnabled()
+		public override void Enable()
 		{
 			Instance = this;
 			eventHandlers = new EventHandlers();
-			if (!Config.IsEnabled) return;
-			ServerEvent.RoundEnded += eventHandlers.RoundEnded;
-			ServerEvent.RestartingRound += eventHandlers.RestartingRound;
+			LabApi.Events.CustomHandlers.CustomHandlersManager.RegisterEventsHandler(eventHandlers);
 		}
 
-		public override void OnDisabled()
+		public override void Disable()
 		{
-			ServerEvent.RoundEnded -= eventHandlers.RoundEnded;
-			ServerEvent.RestartingRound -= eventHandlers.RestartingRound;
-			base.OnDisabled();
+			LabApi.Events.CustomHandlers.CustomHandlersManager.UnregisterEventsHandler(eventHandlers);
+			eventHandlers = null;
+			Instance = null;
 		}
 	}
 }

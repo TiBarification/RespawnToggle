@@ -13,33 +13,13 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
+    <DebugType>embedded</DebugType>
     <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>12</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -49,126 +29,39 @@
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>12</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Assembly-CSharp-Publicized.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Gameservers\scpserv\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-Publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Assembly-CSharp-Publicized.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(EXILED_REFERENCES)\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\CommandSystem.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Exiled.API, Version=9.6.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Exiled.API.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Exiled.CreditTags, Version=9.6.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Exiled.CreditTags.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Exiled.CustomItems, Version=9.6.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Exiled.CustomItems.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Exiled.CustomRoles, Version=9.6.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Exiled.CustomRoles.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Exiled.Events, Version=9.6.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Exiled.Events.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Exiled.Loader, Version=9.6.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Exiled.Loader.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Exiled.Permissions, Version=9.6.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\Exiled.Permissions.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(EXILED_REFERENCES)\CommandSystem.Core.dll</HintPath>
     </Reference>
     <Reference Include="LabApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\LabApi.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(EXILED_REFERENCES)\LabApi.dll</HintPath>
     </Reference>
-    <Reference Include="Mirror">
-      <HintPath>I:\scpserv\SCPSL_Data\Managed\Mirror.dll</HintPath>
-    </Reference>
-    <Reference Include="NorthwoodLib, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\NorthwoodLib.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Mirror, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(EXILED_REFERENCES)\Mirror.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>$(EXILED_REFERENCES)\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>$(EXILED_REFERENCES)\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>I:\scpserv\SCPSL_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExMod.Exiled.9.6.0\lib\net48\YamlDotNet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\RespawnWave\RespawnEventsParent.cs" />
     <Compile Include="Commands\RespawnWave\Toggle.cs" />
     <Compile Include="Commands\RespawnWave\Status.cs" />
-    <Compile Include="Config.cs" />
     <Compile Include="EventHandlers.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RespawnControl.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) "$(USERPROFILE)\AppData\Roaming\EXILED\plugins"</PostBuildEvent>
+    <PostBuildEvent>copy $(TargetPath) "$(APPDATA)\SCP Secret Laboratory\LabAPI\plugins\global"</PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
 </Project>

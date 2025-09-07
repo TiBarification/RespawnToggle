@@ -1,20 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Exiled.Events.EventArgs.Server;
+using LabApi.Events.Arguments.ServerEvents;
+using LabApi.Events.CustomHandlers;
 
 namespace RespawnToggle
 {
-	public class EventHandlers
+	public class EventHandlers: CustomEventsHandler
 	{
-		public void RoundEnded(RoundEndedEventArgs ev)
+		public override void OnServerRoundEnded(RoundEndedEventArgs ev)
 		{
 			RespawnControl.Reset();
 		}
 
-		public void RestartingRound()
+		public override void OnServerRoundRestarted()
 		{
 			RespawnControl.Reset();
 		}
