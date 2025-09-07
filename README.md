@@ -3,21 +3,13 @@
 Main purpose is to be able to stop respawn waves of NTF/CI teams
 
 ## Minimum requirements
-[EXILED](https://github.com/ExMod-Team/EXILED) **9.0.0+**
+- LabAPI 1.1.1
 
 ## How to install
-Put **RespawnToggle.dll** inside `%appdata%\EXILED\Plugins` if you're on **Windows** or `~/.config/EXILED/Plugins` on **Linux**.
-
-### Configs
-```yaml
-respawn_toggle:
-  # Indicates whether the plugin is enabled or not
-  is_enabled: true
-  debug: false
-```
+Put **RespawnToggle.dll** inside `%appdata%\SCP Secret Laboratory\LabAPI\plugins\global` if you're on **Windows** or `~/.config/SCP Secret Laboratory\LabAPI\plugins\global` on **Linux**.
 
 ### Usage
-Requires RespawnEvents vanilla permission
+Requires RespawnEvents player permission
 
 Read current status of respawn waves is allowed or not.
 
